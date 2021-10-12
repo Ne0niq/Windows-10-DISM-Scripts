@@ -28,7 +28,7 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 set SCRIPT="Z:\TEMP.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "Z:\Windows\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÑƒ Appx.lnk" >> %SCRIPT%
+echo sLinkFile = "Z:\Windows\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Âêëþ÷èòü ïîääåðæêó Appx.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%ProgramData%\PostClear\AppxON.reg" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
@@ -36,7 +36,7 @@ cscript /nologo %SCRIPT%
 del %SCRIPT%
 set SCRIPT="Z:\TEMP.vbs"
 echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
-echo sLinkFile = "Z:\Windows\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Ð’Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÑƒ Appx.lnk" >> %SCRIPT%
+echo sLinkFile = "Z:\Windows\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Âûêëþ÷èòü ïîääåðæêó Appx.lnk" >> %SCRIPT%
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
 echo oLink.TargetPath = "%ProgramData%\PostClear\AppxOFF.reg" >> %SCRIPT%
 echo oLink.Save >> %SCRIPT%
