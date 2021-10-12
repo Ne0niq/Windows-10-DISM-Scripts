@@ -26,6 +26,24 @@ echo oLink.TargetPath = "%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.e
 echo oLink.Save >> %SCRIPT%
 cscript /nologo %SCRIPT%
 del %SCRIPT%
+set SCRIPT="Z:\TEMP.vbs"
+echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo sLinkFile = "Z:\Windows\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Включить поддержку Appx.lnk" >> %SCRIPT%
+echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo oLink.TargetPath = "%ProgramData%\PostClear\AppxON.reg" >> %SCRIPT%
+echo oLink.Save >> %SCRIPT%
+cscript /nologo %SCRIPT%
+del %SCRIPT%
+set SCRIPT="Z:\TEMP.vbs"
+echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo sLinkFile = "Z:\Windows\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\System Tools\Выключить поддержку Appx.lnk" >> %SCRIPT%
+echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo oLink.TargetPath = "%ProgramData%\PostClear\AppxOFF.reg" >> %SCRIPT%
+echo oLink.Save >> %SCRIPT%
+cscript /nologo %SCRIPT%
+del %SCRIPT%
+rd /s /q "Z:\Windows\ProgramData\Microsoft\Windows\Start Menu\Programs\Maintenance"
+rd /s /q "Z:\Windows\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Maintenance"
 del /f /q "Z:\Windows\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
 takeown /f Z:\Windows\Windows\SysWOW64\OneDriveSetup.exe
 icacls Z:\Windows\Windows\SysWOW64\OneDriveSetup.exe /grant "%username%":F /c /l /q

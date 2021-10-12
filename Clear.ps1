@@ -17,7 +17,6 @@ dism /image:Z:\Windows /enable-feature /featurename:DirectPlay /all /source:H:\s
 $apps=@(
 "Microsoft.549981C3F5F10_1.1911.21713.0_neutral_~_8wekyb3d8bbwe",
 "Microsoft.BingWeather_4.25.20211.0_neutral_~_8wekyb3d8bbwe",
-"Microsoft.DesktopAppInstaller_2019.125.2243.0_neutral_~_8wekyb3d8bbwe",
 "Microsoft.GetHelp_10.1706.13331.0_neutral_~_8wekyb3d8bbwe",
 "Microsoft.Getstarted_8.2.22942.0_neutral_~_8wekyb3d8bbwe",
 "Microsoft.Microsoft3DViewer_6.1908.2042.0_neutral_~_8wekyb3d8bbwe",
