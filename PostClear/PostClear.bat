@@ -32,12 +32,21 @@ schtasks /delete /tn "Microsoft\Windows\Application Experience\Microsoft Compati
 schtasks /delete /tn "Microsoft\Windows\Application Experience\PcaPatchDbTask" /f
 schtasks /delete /tn "Microsoft\Windows\Application Experience\ProgramDataUpdater" /f
 schtasks /delete /tn "Microsoft\Windows\Application Experience\StartupAppTask" /f
+schtasks /delete /tn Microsoft\Windows\Autochk\Proxy /f
 schtasks /delete /tn Microsoft\Windows\CloudExperienceHost\CreateObjectTask /f
 schtasks /delete /tn "Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /f
 schtasks /delete /tn "Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /f
 schtasks /delete /tn Microsoft\Windows\Defrag\ScheduledDefrag /f
 schtasks /delete /tn Microsoft\Windows\DiskCleanup\SilentCleanup /f
+schtasks /delete /tn Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector /f
 schtasks /delete /tn "Microsoft\Windows\ExploitGuard\ExploitGuard MDM policy Refresh" /f
+schtasks /delete /tn Microsoft\Windows\Feedback\Siuf\DmClient /f
+schtasks /delete /tn Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload /f
+schtasks /delete /tn "Microsoft\Windows\FileHistory\File History (maintenance mode)" /f
+schtasks /delete /tn Microsoft\Windows\Flighting\FeatureConfig\ReconcileFeatures /f
+schtasks /delete /tn Microsoft\Windows\Flighting\FeatureConfig\UsageDataFlushing /f
+schtasks /delete /tn Microsoft\Windows\Flighting\FeatureConfig\UsageDataReporting /f
+schtasks /delete /tn Microsoft\Windows\Flighting\OneSettings\RefreshCache /f
 schtasks /delete /tn Microsoft\Windows\HelloFace\FODCleanupTask /f
 schtasks /delete /tn "Microsoft\Windows\International\Synchronize Language Settings" /f
 schtasks /delete /tn Microsoft\Windows\Maintenance\WinSAT /f
@@ -45,13 +54,21 @@ schtasks /delete /tn Microsoft\Windows\Maps\MapsToastTask /f
 schtasks /delete /tn Microsoft\Windows\Maps\MapsUpdateTask /f
 schtasks /delete /tn Microsoft\Windows\MemoryDiagnostic\ProcessMemoryDiagnosticEvents /f
 schtasks /delete /tn Microsoft\Windows\MemoryDiagnostic\RunFullMemoryDiagnostic /f
+schtasks /delete /tn Microsoft\Windows\NetTrace\GatherNetworkInfo /f
 schtasks /delete /tn "Microsoft\Windows\Offline Files\Background Synchronization" /f
 schtasks /delete /tn "Microsoft\Windows\Offline Files\Logon Synchronization" /f
+schtasks /delete /tn Microsoft\Windows\PI\Sqm-Tasks /f
+schtasks /delete /tn "Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /f
 schtasks /delete /tn Microsoft\Windows\PushToInstall\LoginCheck /f
 schtasks /delete /tn Microsoft\Windows\PushToInstall\Registration /f
 schtasks /delete /tn Microsoft\Windows\RetailDemo\CleanupOfflineContent /f
 schtasks /delete /tn Microsoft\Windows\Setup\SetupCleanupTask /f
+schtasks /delete /tn Microsoft\Windows\Shell\FamilySafetyMonitor /f
+schtasks /delete /tn Microsoft\Windows\Shell\FamilySafetyRefreshTask /f
 schtasks /delete /tn Microsoft\Windows\Speech\SpeechModelDownloadTask /f
+schtasks /delete /tn "Microsoft\Windows\Time Synchronization\ForceSynchronizeTime" /f
+schtasks /delete /tn "Microsoft\Windows\Time Synchronization\SynchronizeTime" /f
+schtasks /delete /tn "Microsoft\Windows\Time Zone\SynchronizeTimeZone" /f
 schtasks /delete /tn Microsoft\Windows\UNP\RunUpdateNotificationMgr /f
 schtasks /delete /tn "Microsoft\Windows\User Profile Service\HiveUploadTask" /f
 schtasks /delete /tn "Microsoft\Windows\Windows Defender\Windows Defender Cache Maintenance" /f
