@@ -67,28 +67,36 @@ takeown /f %DEL%
 icacls %DEL% /grant "%username%":f /c /l /q
 del /f /q %DEL%
 move Z:\calc.exe Z:\Windows\Windows\System32
-copy Z:\calc.exe.mui Z:\Windows\Windows\System32\ru-RU
 icacls %DEL% /inheritance:d
 icacls %DEL% /setowner "NT SERVICE\TrustedInstaller" /c /l /q
 icacls %DEL% /grant:r "NT SERVICE\TrustedInstaller":f
 icacls %DEL% /grant:r "*S-1-5-18":rx
 icacls %DEL% /grant:r "*S-1-5-32-544":rx
+copy Z:\calc.exe.mui Z:\Windows\Windows\System32\ru-RU
 set DEL=Z:\Windows\Windows\SysWOW64\calc.exe
 takeown /f %DEL%
 icacls %DEL% /grant "%username%":f /c /l /q
 del /f /q %DEL%
 move Z:\calc_64.exe Z:\Windows\Windows\SysWOW64\calc.exe
-move Z:\calc.exe.mui Z:\Windows\Windows\SysWOW64\ru-RU
 icacls %DEL% /inheritance:d
 icacls %DEL% /setowner "NT SERVICE\TrustedInstaller" /c /l /q
 icacls %DEL% /grant:r "NT SERVICE\TrustedInstaller":f
 icacls %DEL% /grant:r "*S-1-5-18":rx
 icacls %DEL% /grant:r "*S-1-5-32-544":rx
+move Z:\calc.exe.mui Z:\Windows\Windows\SysWOW64\ru-RU
 set DEL=Z:\Windows\Windows\WinSxS\wow64_microsoft-windows-onedrive-setup_31bf3856ad364e35_10.0.19041.1_none_e585f901f9ce93e6
 takeown /f %DEL%
 icacls %DEL% /grant "%username%":f /c /l /q
 rd /s /q %DEL%
 set DEL=Z:\Windows\Windows\WinSxS\amd64_microsoft-windows-upfc_31bf3856ad364e35_10.0.19041.1_none_5d169326bbc0abdb
+takeown /f %DEL%
+icacls %DEL% /grant "%username%":f /c /l /q
+rd /s /q %DEL%
+set DEL=Z:\Windows\Windows\WinSxS\wow64_microsoft-windows-calc_31bf3856ad364e35_10.0.19041.1_none_6a03b910ee7a4073
+takeown /f %DEL%
+icacls %DEL% /grant "%username%":f /c /l /q
+rd /s /q %DEL%
+set DEL=Z:\Windows\Windows\WinSxS\amd64_microsoft-windows-calc_31bf3856ad364e35_10.0.19041.1_none_5faf0ebeba197e78
 takeown /f %DEL%
 icacls %DEL% /grant "%username%":f /c /l /q
 rd /s /q %DEL%
@@ -98,14 +106,6 @@ del /f /q %DEL%
 set DEL=Z:\Windows\Windows\WinSxS\Manifests\amd64_microsoft-windows-upfc_31bf3856ad364e35_10.0.19041.1_none_5d169326bbc0abdb.manifest
 icacls %DEL% /grant "%username%":f /c /l /q
 del /f /q %DEL%
-set DEL=Z:\Windows\Windows\WinSxS\wow64_microsoft-windows-calc_31bf3856ad364e35_10.0.19041.1_none_6a03b910ee7a4073
-takeown /f %DEL%
-icacls %DEL% /grant "%username%":f /c /l /q
-rd /s /q %DEL%
-set DEL=Z:\Windows\Windows\WinSxS\amd64_microsoft-windows-calc_31bf3856ad364e35_10.0.19041.1_none_5faf0ebeba197e78
-takeown /f %DEL%
-icacls %DEL% /grant "%username%":f /c /l /q
-rd /s /q %DEL%
 set DEL=Z:\Windows\Windows\WinSxS\Manifests\wow64_microsoft-windows-calc_31bf3856ad364e35_10.0.19041.1_none_6a03b910ee7a4073.manifest
 icacls %DEL% /grant "%username%":f /c /l /q
 del /f /q %DEL%

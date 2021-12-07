@@ -101,6 +101,8 @@ schtasks /delete /tn "Microsoft\Windows\Windows Defender\Windows Defender Schedu
 schtasks /delete /tn "Microsoft\Windows\Windows Defender\Windows Defender Verification" /f
 schtasks /delete /tn "Microsoft\Windows\Windows Error Reporting\QueueReporting" /f
 schtasks /delete /tn "Microsoft\Windows\WindowsUpdate\Scheduled Start" /f
+%programdata%\PostClear\AdvancedRun.exe /EXEFilename %programdata%\PostClear\Orchestrator.bat /RunAs 4 /WaitProcess 1 /Run
+TIMEOUT /T 1 /NOBREAK >nul
 title Applying GroupPolicy
 %programdata%\PostClear\LGPO.exe /m %programdata%\PostClear\GPm.pol
 %programdata%\PostClear\LGPO.exe /u %programdata%\PostClear\GPu.pol
@@ -118,8 +120,6 @@ net stop WSearch
 TIMEOUT /T 1 /NOBREAK >nul
 title Deleting WindowsSearch cache
 rd /s /q %programdata%\Microsoft\Search
-title Deleting Orchestrator tasks
-rd /s /q %windir%\System32\Tasks\Microsoft\Windows\UpdateOrchestrator
 title Copy Edge icons
 move %programdata%\PostClear\Assets %windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\Assets
 title Finality PostClearM part
@@ -129,6 +129,7 @@ del /f /q %programdata%\PostClear\ClassicShell.msi
 del /f /q %programdata%\PostClear\GPm.pol
 del /f /q %programdata%\PostClear\GPu.pol
 del /f /q %programdata%\PostClear\LGPO.exe
+del /f /q %programdata%\PostClear\Orchestrator.bat
 del /f /q %programdata%\PostClear\PostClearM.reg
 :PostClearU
 title Deleting Edge shortcut
