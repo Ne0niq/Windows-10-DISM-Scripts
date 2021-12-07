@@ -1,7 +1,7 @@
 mode con:cols=50 lines=1
-title PostClear.bat work...
+title Start work...
 
-IF EXIST C:\ProgramData\PostClear\PostClearM.reg (
+IF EXIST %programdata%\PostClear\PostClearM.reg (
 	call :PostClearM >> C:\PostClear.log 2>&1
 ) else (
 	call :PostClearU
@@ -10,23 +10,47 @@ IF EXIST C:\ProgramData\PostClear\PostClearM.reg (
 EXIT /b 0
 
 :PostClearM
+title Deleting EdgeUpdate
+taskkill /f /im MicrosoftEdgeUpdate.exe
+taskkill /im msedge.exe
+taskkill /f /im elevation_service.exe
+taskkill /f /im notification_helper.exe
+TIMEOUT /T 1 /NOBREAK >nul
+rd /s /q "%programfiles(x86)%\Microsoft\EdgeUpdate"
+rd /s /q "%programfiles(x86)%\Microsoft\Edge\Application\92.0.902.67\Installer"
+del /f /q "%programfiles(x86)%\Microsoft\Edge\Application\92.0.902.67\elevation_service.exe"
+del /f /q "%programfiles(x86)%\Microsoft\Edge\Application\92.0.902.67\notification_helper.exe"
+del /f /q "%programfiles(x86)%\Microsoft\Edge\Application\92.0.902.67\notification_helper.exe.manifest"
+if exist "%programfiles(x86)%\Microsoft\EdgeUpdate" Goto PostClearM
+:StartMenu
+title Replacing StartMenu
 taskkill /f /im StartMenuExperienceHost.exe
 taskkill /f /im explorer.exe
 taskkill /f /im backgroundTaskHost.exe
 taskkill /f /im TextInputHost.exe
 taskkill /f /im SearchApp.exe
 TIMEOUT /T 2 /NOBREAK >nul
-move C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy.disable
-move C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy.disable
-move C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy.disable
-if not exist C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy.disable Goto PostClearM
-if not exist C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy.disable Goto PostClearM
-if not exist C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy.disable Goto PostClearM
-C:\ProgramData\PostClear\ClassicShell.msi /qn ADDLOCAL=ClassicStartMenu
+move %windir%\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy %windir%\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy.disable
+move %windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy %windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy.disable
+move %windir%\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy %windir%\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy.disable
+if not exist %windir%\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy.disable Goto StartMenu
+if not exist %windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy.disable Goto StartMenu
+if not exist %windir%\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy.disable Goto StartMenu
+%programdata%\PostClear\ClassicShell.msi /qn ADDLOCAL=ClassicStartMenu
+xcopy /y "%programdata%\PostClear\Classic Shell" "%programfiles%\Classic Shell"
+title Stopping Orchestrator
 net stop UsoSvc
 TIMEOUT /T 1 /NOBREAK >nul
-C:\ProgramData\PostClear\AdvancedRun.exe /EXEFilename C:\Windows\regedit.exe /CommandLine "/S C:\ProgramData\PostClear\PostClearM.reg" /RunAs 4 /WaitProcess 1 /Run
+title Applying PostClearM.reg
+%programdata%\PostClear\AdvancedRun.exe /EXEFilename %windir%\regedit.exe /CommandLine "/S %programdata%\PostClear\PostClearM.reg" /RunAs 4 /WaitProcess 1 /Run
 TIMEOUT /T 1 /NOBREAK >nul
+title Deleting Edge services
+sc delete MicrosoftEdgeElevationService
+sc delete edgeupdate
+sc delete edgeupdatem
+title Deleting tasks
+schtasks /delete /tn MicrosoftEdgeUpdateTaskMachineCore /f
+schtasks /delete /tn MicrosoftEdgeUpdateTaskMachineUA /f
 schtasks /delete /tn Microsoft\XblGameSave\XblGameSaveTask /f
 schtasks /delete /tn "Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /f
 schtasks /delete /tn "Microsoft\Windows\Application Experience\PcaPatchDbTask" /f
@@ -77,28 +101,41 @@ schtasks /delete /tn "Microsoft\Windows\Windows Defender\Windows Defender Schedu
 schtasks /delete /tn "Microsoft\Windows\Windows Defender\Windows Defender Verification" /f
 schtasks /delete /tn "Microsoft\Windows\Windows Error Reporting\QueueReporting" /f
 schtasks /delete /tn "Microsoft\Windows\WindowsUpdate\Scheduled Start" /f
-C:\ProgramData\PostClear\LGPO.exe /m C:\ProgramData\PostClear\GPm.pol
-C:\ProgramData\PostClear\LGPO.exe /u C:\ProgramData\PostClear\GPu.pol
+title Applying GroupPolicy
+%programdata%\PostClear\LGPO.exe /m %programdata%\PostClear\GPm.pol
+%programdata%\PostClear\LGPO.exe /u %programdata%\PostClear\GPu.pol
+title Updating GroupPolicy
 gpupdate /force
+title Stopping SuperFetch
 net stop SysMain
 TIMEOUT /T 1 /NOBREAK >nul
-for /f "tokens=*" %%i in ('dir /b /s C:\Windows\Prefetch\*.pf') do (
+title Deleting SuperFetch cache
+for /f "tokens=*" %%i in ('dir /b /s %windir%\Prefetch\*.pf') do (
 	del /f /q "%%~i"
 )
+title Stopping WindowsSearch
 net stop WSearch
 TIMEOUT /T 1 /NOBREAK >nul
-rd /s /q C:\ProgramData\Microsoft\Search
-rd /s /q C:\Windows\System32\Tasks\Microsoft\Windows\UpdateOrchestrator
-del /f /q C:\ProgramData\PostClear\AdvancedRun.exe
-del /f /q C:\ProgramData\PostClear\ClassicShell.msi
-del /f /q C:\ProgramData\PostClear\GPm.pol
-del /f /q C:\ProgramData\PostClear\GPu.pol
-del /f /q C:\ProgramData\PostClear\LGPO.exe
-del /f /q C:\ProgramData\PostClear\PostClearM.reg
+title Deleting WindowsSearch cache
+rd /s /q %programdata%\Microsoft\Search
+title Deleting Orchestrator tasks
+rd /s /q %windir%\System32\Tasks\Microsoft\Windows\UpdateOrchestrator
+title Copy Edge icons
+move %programdata%\PostClear\Assets %windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\Assets
+title Finality PostClearM part
+rd /s /q "%programdata%\PostClear\Classic Shell"
+del /f /q %programdata%\PostClear\AdvancedRun.exe
+del /f /q %programdata%\PostClear\ClassicShell.msi
+del /f /q %programdata%\PostClear\GPm.pol
+del /f /q %programdata%\PostClear\GPu.pol
+del /f /q %programdata%\PostClear\LGPO.exe
+del /f /q %programdata%\PostClear\PostClearM.reg
 :PostClearU
-C:\Windows\regedit.exe /S C:\ProgramData\PostClear\PostClearU.reg
-TIMEOUT /T 1 /NOBREAK >nul
+title Deleting Edge shortcut
 del /f /q "%userprofile%\Desktop\Microsoft Edge.lnk"
+title Applying PostClearU.reg
+%windir%\regedit.exe /S %programdata%\PostClear\PostClearU.reg
+TIMEOUT /T 1 /NOBREAK >nul
+title Rebooting...
 SHUTDOWN -r -t 3
-title Done. Rebooting...
 TIMEOUT /T 3 /NOBREAK >nul

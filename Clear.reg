@@ -3,11 +3,6 @@ Windows Registry Editor Version 5.00
 "OneDriveSetup"="C:\\ProgramData\\PostClear\\PostClear.bat"
 [HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
 "SecurityHealth"=-
-[-HKEY_LOCAL_MACHINE\WIM_SYSTEM\ControlSet001\Services\edgeupdate]
-[-HKEY_LOCAL_MACHINE\WIM_SYSTEM\ControlSet001\Services\edgeupdatem]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update]
 ; Отключение Meltdown\Spectre патчей
 [HKEY_LOCAL_MACHINE\WIM_SYSTEM\ControlSet001\Control\Session Manager\Memory Management]
 "FeatureSettingsOverride"=dword:00000003
@@ -43,20 +38,6 @@ Windows Registry Editor Version 5.00
   00,31,00,00,00
 [HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Classes\Applications\photoviewer.dll\shell\open\DropTarget]
 "Clsid"="{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}"
-; Задачи UpdateOrchestrator
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\Microsoft\Windows\UpdateOrchestrator\Report policies]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\Microsoft\Windows\UpdateOrchestrator\UpdateModelTask]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\Microsoft\Windows\UpdateOrchestrator\USO_UxBroker]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Plain\{4671B5C1-A383-4428-A45A-8D348E4CB873}]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{4671B5C1-A383-4428-A45A-8D348E4CB873}]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Maintenance\{70EA2999-165C-4933-9027-250FB8B772F8}]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Plain\{70EA2999-165C-4933-9027-250FB8B772F8}]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{70EA2999-165C-4933-9027-250FB8B772F8}]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Plain\{CB673CE4-960F-462D-AAD7-CDA0CD9FE030}]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{CB673CE4-960F-462D-AAD7-CDA0CD9FE030}]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Update\TargetingInfo\DynamicInstalled\Hammer.amd64]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Update\TargetingInfo\DynamicInstalled\MSRT.amd64]
-[-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Update\TargetingInfo\DynamicInstalled\SedimentPack.amd64]
 ; Задача WaaSMedic
 [-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Plain\{0CEC0B91-4AE9-4E8A-ACB2-3B4C811F442C}]
 [-HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{0CEC0B91-4AE9-4E8A-ACB2-3B4C811F442C}]
