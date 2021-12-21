@@ -24,7 +24,7 @@ Windows Registry Editor Version 5.00
 "PromptOnSecureDesktop"=dword:00000000
 ; Возвращение Просмотр фотографий Windows в список приложений
 [HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Classes\Applications\photoviewer.dll\shell\open]
-"MuiVerb"="@%ProgramFiles%\\Windows Photo Viewer\\photoviewer.dll,-3043"
+"MuiVerb"="@%programfiles%\\Windows Photo Viewer\\photoviewer.dll,-3043"
 [HKEY_LOCAL_MACHINE\WIM_SOFTWARE\Classes\Applications\photoviewer.dll\shell\open\command]
 @=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
   00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,72,00,75,00,\

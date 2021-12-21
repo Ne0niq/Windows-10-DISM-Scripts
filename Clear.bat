@@ -57,32 +57,20 @@ takeown /f %DEL%
 icacls %DEL% /grant "%username%":f /c /l /q
 del /f /q %DEL%
 move Z:\upfc.exe Z:\Windows\Windows\System32
-icacls %DEL% /inheritance:d
-icacls %DEL% /setowner "NT SERVICE\TrustedInstaller" /c /l /q
-icacls %DEL% /grant:r "NT SERVICE\TrustedInstaller":f
-icacls %DEL% /grant:r "*S-1-5-18":rx
-icacls %DEL% /grant:r "*S-1-5-32-544":rx
+%windir%\System32\WindowsPowerShell\v1.0\Powershell.exe -executionpolicy remotesigned -Command "& Get-Acl -Path $env:windir\System32\control.exe | Set-Acl -Path %DEL%"
 set DEL=Z:\Windows\Windows\System32\calc.exe
 takeown /f %DEL%
 icacls %DEL% /grant "%username%":f /c /l /q
 del /f /q %DEL%
 move Z:\calc.exe Z:\Windows\Windows\System32
-icacls %DEL% /inheritance:d
-icacls %DEL% /setowner "NT SERVICE\TrustedInstaller" /c /l /q
-icacls %DEL% /grant:r "NT SERVICE\TrustedInstaller":f
-icacls %DEL% /grant:r "*S-1-5-18":rx
-icacls %DEL% /grant:r "*S-1-5-32-544":rx
+%windir%\System32\WindowsPowerShell\v1.0\Powershell.exe -executionpolicy remotesigned -Command "& Get-Acl -Path $env:windir\System32\control.exe | Set-Acl -Path %DEL%"
 copy Z:\calc.exe.mui Z:\Windows\Windows\System32\ru-RU
 set DEL=Z:\Windows\Windows\SysWOW64\calc.exe
 takeown /f %DEL%
 icacls %DEL% /grant "%username%":f /c /l /q
 del /f /q %DEL%
 move Z:\calc_64.exe Z:\Windows\Windows\SysWOW64\calc.exe
-icacls %DEL% /inheritance:d
-icacls %DEL% /setowner "NT SERVICE\TrustedInstaller" /c /l /q
-icacls %DEL% /grant:r "NT SERVICE\TrustedInstaller":f
-icacls %DEL% /grant:r "*S-1-5-18":rx
-icacls %DEL% /grant:r "*S-1-5-32-544":rx
+%windir%\System32\WindowsPowerShell\v1.0\Powershell.exe -executionpolicy remotesigned -Command "& Get-Acl -Path $env:windir\System32\control.exe | Set-Acl -Path %DEL%"
 move Z:\calc.exe.mui Z:\Windows\Windows\SysWOW64\ru-RU
 set DEL=Z:\Windows\Windows\WinSxS\wow64_microsoft-windows-onedrive-setup_31bf3856ad364e35_10.0.19041.1_none_e585f901f9ce93e6
 takeown /f %DEL%

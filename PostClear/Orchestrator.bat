@@ -1,3 +1,6 @@
+call :PostClearO >> C:\PostClear.log 2>&1
+
+:PostClearO
 schtasks /delete /tn "Microsoft\Windows\UpdateOrchestrator\Report policies" /f
 schtasks /delete /tn "Microsoft\Windows\UpdateOrchestrator\Schedule Scan" /f
 schtasks /delete /tn "Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task" /f

@@ -43,6 +43,7 @@ net stop UsoSvc
 TIMEOUT /T 1 /NOBREAK >nul
 title Applying PostClearM.reg
 %programdata%\PostClear\AdvancedRun.exe /EXEFilename %windir%\regedit.exe /CommandLine "/S %programdata%\PostClear\PostClearM.reg" /RunAs 4 /WaitProcess 1 /Run
+reg add "HKLM\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}" /v location /t REG_SZ /d "%programfiles(x86)%\Microsoft\Edge\Application"
 TIMEOUT /T 1 /NOBREAK >nul
 title Deleting Edge services
 sc delete MicrosoftEdgeElevationService
@@ -102,6 +103,9 @@ schtasks /delete /tn "Microsoft\Windows\Windows Defender\Windows Defender Verifi
 schtasks /delete /tn "Microsoft\Windows\Windows Error Reporting\QueueReporting" /f
 schtasks /delete /tn "Microsoft\Windows\WindowsUpdate\Scheduled Start" /f
 %programdata%\PostClear\AdvancedRun.exe /EXEFilename %programdata%\PostClear\Orchestrator.bat /RunAs 4 /WaitProcess 1 /Run
+schtasks /create /tn "Microsoft\Windows\WindowsUpdate\Scheduled Start" /tr %windir%\explorer.exe /sc once /sd 30/11/1999 /st 00:00 /ru SYSTEM
+schtasks /change /tn "Microsoft\Windows\WindowsUpdate\Scheduled Start" /disable
+%windir%\System32\WindowsPowerShell\v1.0\Powershell.exe -executionpolicy remotesigned -Command "& Get-Acl -Path $env:windir\System32\control.exe | Set-Acl -Path $env:windir\System32\Tasks\Microsoft\Windows\WindowsUpdate\Scheduled` Start"
 TIMEOUT /T 1 /NOBREAK >nul
 title Applying GroupPolicy
 %programdata%\PostClear\LGPO.exe /m %programdata%\PostClear\GPm.pol

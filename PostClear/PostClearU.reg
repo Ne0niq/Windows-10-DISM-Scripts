@@ -111,6 +111,106 @@ Windows Registry Editor Version 5.00
 "Flags"=-
 [HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys]
 "Flags"=-
+; Оформление поиска по умолчанию, для смешанных типов
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell\{7FDE1A1E-8B31-49A5-93B8-6BE14CFA4943}]
+"Rev"=dword:00000016
+"FFlags"=dword:01200001
+"Vid"="{137E7700-3573-11CF-AE69-08002B2E1262}"
+"Mode"=dword:00000004
+"LogicalViewMode"=dword:00000001
+"IconSize"=dword:00000010
+"Sort"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,30,f1,\
+  25,b7,ef,47,1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,01,00,00,00
+"ColInfo"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,fd,df,df,fd,10,\
+  00,00,00,00,00,00,00,00,00,00,00,04,00,00,00,18,00,00,00,30,f1,25,b7,ef,47,\
+  1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,e6,00,00,00,30,f1,25,b7,ef,47,1a,\
+  10,a5,f1,02,60,8c,9e,eb,ac,0e,00,00,00,90,00,00,00,30,f1,25,b7,ef,47,1a,10,\
+  a5,f1,02,60,8c,9e,eb,ac,0c,00,00,00,50,00,00,00,ed,30,bd,da,43,00,89,47,a7,\
+  f8,d0,13,a4,73,66,22,64,00,00,00,aa,00,00,00
+"GroupView"=dword:00000000
+"GroupByKey:FMTID"="{00000000-0000-0000-0000-000000000000}"
+"GroupByKey:PID"=dword:00000000
+"GroupByDirection"=dword:00000001
+; Для Документов
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell\{36011842-DCCC-40FE-AA3D-6177EA401788}]
+"Rev"=dword:00000016
+"FFlags"=dword:01200001
+"Vid"="{137E7700-3573-11CF-AE69-08002B2E1262}"
+"Mode"=dword:00000004
+"LogicalViewMode"=dword:00000001
+"IconSize"=dword:00000010
+"Sort"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,30,f1,\
+  25,b7,ef,47,1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,01,00,00,00
+"ColInfo"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,fd,df,df,fd,10,\
+  00,00,00,00,00,00,00,00,00,00,00,04,00,00,00,18,00,00,00,30,f1,25,b7,ef,47,\
+  1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,e6,00,00,00,30,f1,25,b7,ef,47,1a,\
+  10,a5,f1,02,60,8c,9e,eb,ac,0e,00,00,00,90,00,00,00,30,f1,25,b7,ef,47,1a,10,\
+  a5,f1,02,60,8c,9e,eb,ac,0c,00,00,00,50,00,00,00,ed,30,bd,da,43,00,89,47,a7,\
+  f8,d0,13,a4,73,66,22,64,00,00,00,aa,00,00,00
+"GroupView"=dword:00000000
+"GroupByKey:FMTID"="{00000000-0000-0000-0000-000000000000}"
+"GroupByKey:PID"=dword:00000000
+"GroupByDirection"=dword:00000001
+; Для Картинок
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell\{4DCAFE13-E6A7-4C28-BE02-CA8C2126280D}]
+"Rev"=dword:00000016
+"FFlags"=dword:01200001
+"Vid"="{137E7700-3573-11CF-AE69-08002B2E1262}"
+"Mode"=dword:00000004
+"LogicalViewMode"=dword:00000001
+"IconSize"=dword:00000010
+"Sort"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,30,f1,\
+  25,b7,ef,47,1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,01,00,00,00
+"ColInfo"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,fd,df,df,fd,10,\
+  00,00,00,00,00,00,00,00,00,00,00,04,00,00,00,18,00,00,00,30,f1,25,b7,ef,47,\
+  1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,e6,00,00,00,30,f1,25,b7,ef,47,1a,\
+  10,a5,f1,02,60,8c,9e,eb,ac,0e,00,00,00,90,00,00,00,30,f1,25,b7,ef,47,1a,10,\
+  a5,f1,02,60,8c,9e,eb,ac,0c,00,00,00,50,00,00,00,ed,30,bd,da,43,00,89,47,a7,\
+  f8,d0,13,a4,73,66,22,64,00,00,00,aa,00,00,00
+"GroupView"=dword:00000000
+"GroupByKey:FMTID"="{00000000-0000-0000-0000-000000000000}"
+"GroupByKey:PID"=dword:00000000
+"GroupByDirection"=dword:00000001
+; Для Музыки
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell\{71689AC1-CC88-45D0-8A22-2943C3E7DFB3}]
+"Rev"=dword:00000016
+"FFlags"=dword:01200001
+"Vid"="{137E7700-3573-11CF-AE69-08002B2E1262}"
+"Mode"=dword:00000004
+"LogicalViewMode"=dword:00000001
+"IconSize"=dword:00000010
+"Sort"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,30,f1,\
+  25,b7,ef,47,1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,01,00,00,00
+"ColInfo"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,fd,df,df,fd,10,\
+  00,00,00,00,00,00,00,00,00,00,00,04,00,00,00,18,00,00,00,30,f1,25,b7,ef,47,\
+  1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,e6,00,00,00,30,f1,25,b7,ef,47,1a,\
+  10,a5,f1,02,60,8c,9e,eb,ac,0e,00,00,00,90,00,00,00,30,f1,25,b7,ef,47,1a,10,\
+  a5,f1,02,60,8c,9e,eb,ac,0c,00,00,00,50,00,00,00,ed,30,bd,da,43,00,89,47,a7,\
+  f8,d0,13,a4,73,66,22,64,00,00,00,aa,00,00,00
+"GroupView"=dword:00000000
+"GroupByKey:FMTID"="{00000000-0000-0000-0000-000000000000}"
+"GroupByKey:PID"=dword:00000000
+"GroupByDirection"=dword:00000001
+; Для Видео
+[HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell\{EA25FBD7-3BF7-409E-B97F-3352240903F4}]
+"Rev"=dword:00000016
+"FFlags"=dword:01200001
+"Vid"="{137E7700-3573-11CF-AE69-08002B2E1262}"
+"Mode"=dword:00000004
+"LogicalViewMode"=dword:00000001
+"IconSize"=dword:00000010
+"Sort"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,01,00,00,00,30,f1,\
+  25,b7,ef,47,1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,01,00,00,00
+"ColInfo"=hex:00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,fd,df,df,fd,10,\
+  00,00,00,00,00,00,00,00,00,00,00,04,00,00,00,18,00,00,00,30,f1,25,b7,ef,47,\
+  1a,10,a5,f1,02,60,8c,9e,eb,ac,0a,00,00,00,e6,00,00,00,30,f1,25,b7,ef,47,1a,\
+  10,a5,f1,02,60,8c,9e,eb,ac,0e,00,00,00,90,00,00,00,30,f1,25,b7,ef,47,1a,10,\
+  a5,f1,02,60,8c,9e,eb,ac,0c,00,00,00,50,00,00,00,ed,30,bd,da,43,00,89,47,a7,\
+  f8,d0,13,a4,73,66,22,64,00,00,00,aa,00,00,00
+"GroupView"=dword:00000000
+"GroupByKey:FMTID"="{00000000-0000-0000-0000-000000000000}"
+"GroupByKey:PID"=dword:00000000
+"GroupByDirection"=dword:00000001
 ; ClassicShell
 [HKEY_CURRENT_USER\SOFTWARE\IvoSoft\ClassicStartMenu\Settings]
 "SkipMetro"=dword:00000001
