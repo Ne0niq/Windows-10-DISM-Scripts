@@ -38,6 +38,7 @@ if not exist %windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy.disab
 if not exist %windir%\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy.disable Goto StartMenu
 %programdata%\PostClear\ClassicShell.msi /qn ADDLOCAL=ClassicStartMenu
 xcopy /y "%programdata%\PostClear\Classic Shell" "%programfiles%\Classic Shell"
+Dism /Online /Set-ReservedStorageState /State:Disabled
 title Stopping Orchestrator
 net stop UsoSvc
 TIMEOUT /T 1 /NOBREAK >nul
