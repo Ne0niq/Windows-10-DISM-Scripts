@@ -2,18 +2,18 @@ dism /delete-image /imagefile:Z:\install.wim /index:5
 dism /delete-image /imagefile:Z:\install.wim /index:4
 dism /delete-image /imagefile:Z:\install.wim /index:2
 dism /delete-image /imagefile:Z:\install.wim /index:1
-mkdir Z:\Windows
-dism /mount-image /imagefile:Z:\install.wim /index:1 /mountdir:Z:\Windows
-dism /image:Z:\Windows /remove-capability /capabilityname:App.StepsRecorder~~~~0.0.1.0
-dism /image:Z:\Windows /remove-capability /capabilityname:App.Support.QuickAssist~~~~0.0.1.0
-dism /image:Z:\Windows /remove-capability /capabilityname:Hello.Face.18967~~~~0.0.1.0
-dism /image:Z:\Windows /remove-capability /capabilityname:Hello.Face.Migration.18967~~~~0.0.1.0
-dism /image:Z:\Windows /remove-capability /capabilityname:MathRecognizer~~~~0.0.1.0
-dism /image:Z:\Windows /remove-capability /capabilityname:OneCoreUAP.OneSync~~~~0.0.1.0
+mkdir Z:\Install
+dism /mount-image /imagefile:Z:\install.wim /index:1 /mountdir:Z:\Install
+dism /image:Z:\Install /remove-capability /capabilityname:App.StepsRecorder~~~~0.0.1.0
+dism /image:Z:\Install /remove-capability /capabilityname:App.Support.QuickAssist~~~~0.0.1.0
+dism /image:Z:\Install /remove-capability /capabilityname:Hello.Face.18967~~~~0.0.1.0
+dism /image:Z:\Install /remove-capability /capabilityname:Hello.Face.Migration.18967~~~~0.0.1.0
+dism /image:Z:\Install /remove-capability /capabilityname:MathRecognizer~~~~0.0.1.0
+dism /image:Z:\Install /remove-capability /capabilityname:OneCoreUAP.OneSync~~~~0.0.1.0
 # .NET Framework 3.5 для старых приложений
-dism /image:Z:\Windows /enable-feature /featurename:NetFx3 /all /source:H:\sources\sxs\ /limitaccess
+dism /image:Z:\Install /enable-feature /featurename:NetFx3 /all /source:H:\sources\sxs\ /limitaccess
 # Direct Play для старых игр
-dism /image:Z:\Windows /enable-feature /featurename:DirectPlay /all /source:H:\sources\sxs\ /limitaccess
+dism /image:Z:\Install /enable-feature /featurename:DirectPlay /all /source:H:\sources\sxs\ /limitaccess
 $apps=@(
 "Microsoft.549981C3F5F10_1.1911.21713.0_neutral_~_8wekyb3d8bbwe",
 "Microsoft.BingWeather_4.25.20211.0_neutral_~_8wekyb3d8bbwe",
@@ -51,5 +51,5 @@ $apps=@(
 "Microsoft.ZuneVideo_2019.19071.19011.0_neutral_~_8wekyb3d8bbwe"
 )
 foreach ($app in $apps) {
-	dism /image:Z:\Windows /remove-provisionedappxpackage /packagename:$app
+	dism /image:Z:\Install /remove-provisionedappxpackage /packagename:$app
 }

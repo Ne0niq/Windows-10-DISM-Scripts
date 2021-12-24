@@ -111,7 +111,7 @@ Windows Registry Editor Version 5.00
 "Flags"=-
 [HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys]
 "Flags"=-
-; Оформление поиска по умолчанию, для смешанных типов
+; Оформление поиска по умолчанию. Для смешанных типов
 [HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell\{7FDE1A1E-8B31-49A5-93B8-6BE14CFA4943}]
 "Rev"=dword:00000016
 "FFlags"=dword:01200001

@@ -2,9 +2,9 @@ dism /export-image /sourceimagefile:Z:\install.wim /sourceindex:1 /destinationim
 
 Информационные команды:
 dism /get-imageinfo /imagefile:Z:\install.wim
-dism /image:Z:\Windows /get-provisionedappxpackages > Z:\list1.txt
-dism /image:Z:\Windows /get-capabilities > Z:\list2.txt
-dism /image:Z:\Windows /get-features > Z:\list3.txt
+dism /image:Z:\Install /get-provisionedappxpackages > Z:\list1.txt
+dism /image:Z:\Install /get-capabilities > Z:\list2.txt
+dism /image:Z:\Install /get-features > Z:\list3.txt
 
 Подготовка бекапа групповых политик:
 C:\Windows\System32\GroupPolicy - должна быть пустой (чистая система).

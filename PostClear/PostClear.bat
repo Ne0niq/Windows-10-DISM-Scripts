@@ -38,7 +38,6 @@ if not exist %windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy.disab
 if not exist %windir%\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy.disable Goto StartMenu
 %programdata%\PostClear\ClassicShell.msi /qn ADDLOCAL=ClassicStartMenu
 xcopy /y "%programdata%\PostClear\Classic Shell" "%programfiles%\Classic Shell"
-Dism /Online /Set-ReservedStorageState /State:Disabled
 title Stopping Orchestrator
 net stop UsoSvc
 TIMEOUT /T 1 /NOBREAK >nul
@@ -103,14 +102,21 @@ schtasks /delete /tn "Microsoft\Windows\Windows Defender\Windows Defender Schedu
 schtasks /delete /tn "Microsoft\Windows\Windows Defender\Windows Defender Verification" /f
 schtasks /delete /tn "Microsoft\Windows\Windows Error Reporting\QueueReporting" /f
 schtasks /delete /tn "Microsoft\Windows\WindowsUpdate\Scheduled Start" /f
-%programdata%\PostClear\AdvancedRun.exe /EXEFilename %programdata%\PostClear\Orchestrator.bat /RunAs 4 /WaitProcess 1 /Run
 schtasks /create /tn "Microsoft\Windows\WindowsUpdate\Scheduled Start" /tr %windir%\explorer.exe /sc once /sd 30/11/1999 /st 00:00 /ru SYSTEM
 schtasks /change /tn "Microsoft\Windows\WindowsUpdate\Scheduled Start" /disable
 %windir%\System32\WindowsPowerShell\v1.0\Powershell.exe -executionpolicy remotesigned -Command "& Get-Acl -Path $env:windir\System32\control.exe | Set-Acl -Path $env:windir\System32\Tasks\Microsoft\Windows\WindowsUpdate\Scheduled` Start"
+%programdata%\PostClear\AdvancedRun.exe /EXEFilename %windir%\System32\schtasks.exe /CommandLine '/delete /tn "Microsoft\Windows\UpdateOrchestrator\Report policies" /f' /RunAs 4 /WaitProcess 1 /Run
+%programdata%\PostClear\AdvancedRun.exe /EXEFilename %windir%\System32\schtasks.exe /CommandLine '/delete /tn "Microsoft\Windows\UpdateOrchestrator\Schedule Scan" /f' /RunAs 4 /WaitProcess 1 /Run
+%programdata%\PostClear\AdvancedRun.exe /EXEFilename %windir%\System32\schtasks.exe /CommandLine '/delete /tn "Microsoft\Windows\UpdateOrchestrator\Schedule Scan Static Task" /f' /RunAs 4 /WaitProcess 1 /Run
+%programdata%\PostClear\AdvancedRun.exe /EXEFilename %windir%\System32\schtasks.exe /CommandLine '/delete /tn "Microsoft\Windows\UpdateOrchestrator\Schedule Work" /f' /RunAs 4 /WaitProcess 1 /Run
+%programdata%\PostClear\AdvancedRun.exe /EXEFilename %windir%\System32\schtasks.exe /CommandLine '/delete /tn Microsoft\Windows\UpdateOrchestrator\UpdateModelTask /f' /RunAs 4 /WaitProcess 1 /Run
+%programdata%\PostClear\AdvancedRun.exe /EXEFilename %windir%\System32\schtasks.exe /CommandLine '/delete /tn Microsoft\Windows\UpdateOrchestrator\USO_UxBroker /f' /RunAs 4 /WaitProcess 1 /Run
 TIMEOUT /T 1 /NOBREAK >nul
 title Applying GroupPolicy
 %programdata%\PostClear\LGPO.exe /m %programdata%\PostClear\GPm.pol
+TIMEOUT /T 1 /NOBREAK >nul
 %programdata%\PostClear\LGPO.exe /u %programdata%\PostClear\GPu.pol
+TIMEOUT /T 1 /NOBREAK >nul
 title Updating GroupPolicy
 gpupdate /force
 title Stopping SuperFetch
@@ -125,6 +131,8 @@ net stop WSearch
 TIMEOUT /T 1 /NOBREAK >nul
 title Deleting WindowsSearch cache
 rd /s /q %programdata%\Microsoft\Search
+title Disable ReservedStorage
+Dism /Online /Set-ReservedStorageState /State:Disabled
 title Copy Edge icons
 move %programdata%\PostClear\Assets %windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\Assets
 title Finality PostClearM part
@@ -134,7 +142,6 @@ del /f /q %programdata%\PostClear\ClassicShell.msi
 del /f /q %programdata%\PostClear\GPm.pol
 del /f /q %programdata%\PostClear\GPu.pol
 del /f /q %programdata%\PostClear\LGPO.exe
-del /f /q %programdata%\PostClear\Orchestrator.bat
 del /f /q %programdata%\PostClear\PostClearM.reg
 :PostClearU
 title Deleting Edge shortcut
