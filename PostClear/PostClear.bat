@@ -135,6 +135,9 @@ title Disable ReservedStorage
 Dism /Online /Set-ReservedStorageState /State:Disabled
 title Copy Edge icons
 move %programdata%\PostClear\Assets %windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\Assets
+title Deleting Edge shortcut
+del /f /q "%public%\Desktop\Microsoft Edge.lnk"
+del /f /q "%windir%\System32\config\systemprofile\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Microsoft Edge.lnk"
 title Finality PostClearM part
 rd /s /q "%programdata%\PostClear\Classic Shell"
 del /f /q %programdata%\PostClear\AdvancedRun.exe
@@ -144,8 +147,11 @@ del /f /q %programdata%\PostClear\GPu.pol
 del /f /q %programdata%\PostClear\LGPO.exe
 del /f /q %programdata%\PostClear\PostClearM.reg
 :PostClearU
+taskkill /f /im explorer.exe
+TIMEOUT /T 1 /NOBREAK >nul
 title Deleting Edge shortcut
 del /f /q "%userprofile%\Desktop\Microsoft Edge.lnk"
+del /f /q "%userprofile%\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Microsoft Edge.lnk"
 title Applying PostClearU.reg
 %windir%\regedit.exe /S %programdata%\PostClear\PostClearU.reg
 TIMEOUT /T 1 /NOBREAK >nul

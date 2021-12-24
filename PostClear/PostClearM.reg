@@ -191,6 +191,7 @@ Windows Registry Editor Version 5.00
 ; Предоставить доступ
 [-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\Sharing]
 ; Предоставить доступ к
+[-HKEY_CLASSES_ROOT\Directory\background\shellex\ContextMenuHandlers\Sharing]
 [-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\Sharing]
 [-HKEY_CLASSES_ROOT\Drive\shellex\ContextMenuHandlers\Sharing]
 ; Добавить в библиотеку
