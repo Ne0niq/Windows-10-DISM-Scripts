@@ -1,19 +1,26 @@
+# Удаление всех редакций кроме Pro
 dism /delete-image /imagefile:Z:\install.wim /index:5
 dism /delete-image /imagefile:Z:\install.wim /index:4
 dism /delete-image /imagefile:Z:\install.wim /index:2
 dism /delete-image /imagefile:Z:\install.wim /index:1
+# Монтирование
 mkdir Z:\Install
 dism /mount-image /imagefile:Z:\install.wim /index:1 /mountdir:Z:\Install
+# Добавление файла ответов
+mkdir Z:\Install\Windows\Panther
+move Z:\unattend.xml Z:\Install\Windows\Panther
+# Удаление компонентов
 dism /image:Z:\Install /remove-capability /capabilityname:App.StepsRecorder~~~~0.0.1.0
 dism /image:Z:\Install /remove-capability /capabilityname:App.Support.QuickAssist~~~~0.0.1.0
 dism /image:Z:\Install /remove-capability /capabilityname:Hello.Face.18967~~~~0.0.1.0
 dism /image:Z:\Install /remove-capability /capabilityname:Hello.Face.Migration.18967~~~~0.0.1.0
 dism /image:Z:\Install /remove-capability /capabilityname:MathRecognizer~~~~0.0.1.0
 dism /image:Z:\Install /remove-capability /capabilityname:OneCoreUAP.OneSync~~~~0.0.1.0
-# .NET Framework 3.5 для старых приложений
+# Установка .NET Framework 3.5
 dism /image:Z:\Install /enable-feature /featurename:NetFx3 /all /source:H:\sources\sxs\ /limitaccess
-# Direct Play для старых игр
+# Активация Direct Play
 dism /image:Z:\Install /enable-feature /featurename:DirectPlay /all /source:H:\sources\sxs\ /limitaccess
+# Удаление предустановочных пакетов
 $apps=@(
 "Microsoft.549981C3F5F10_1.1911.21713.0_neutral_~_8wekyb3d8bbwe",
 "Microsoft.BingWeather_4.25.20211.0_neutral_~_8wekyb3d8bbwe",

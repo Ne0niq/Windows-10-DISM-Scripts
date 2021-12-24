@@ -151,6 +151,7 @@ taskkill /f /im explorer.exe
 TIMEOUT /T 1 /NOBREAK >nul
 title Deleting Edge shortcut
 del /f /q "%userprofile%\Desktop\Microsoft Edge.lnk"
+del /f /q "%userprofile%\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\Microsoft Edge.lnk"
 del /f /q "%userprofile%\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Microsoft Edge.lnk"
 title Applying PostClearU.reg
 %windir%\regedit.exe /S %programdata%\PostClear\PostClearU.reg
