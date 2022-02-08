@@ -22,8 +22,6 @@ dism /image:Z:\Install /get-features > Z:\list3.txt
 		Запретить использование. (Вкл.)
 	SmartScreen Защитника Windows - Explorer:
 		Настроить функцию "SmartScreen". (Откл.)
-	Windows Hello для бизнеса:
-		Использование Windows Hello для бизнеса. (Откл.)
 	Windows Ink Workspace:
 		Разрешить рекомендуемые приложения. (Откл.)
 	Антивирусная программа Microsoft Defender:
