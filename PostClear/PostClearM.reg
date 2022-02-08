@@ -126,6 +126,9 @@ Windows Registry Editor Version 5.00
 ; Центр обновления Windows
 [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\wuauserv]
 "Start"=dword:00000004
+; Требовать выполнение входа с помощью Windows Hello
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device]
+"DevicePasswordLessBuildVersion"=dword:00000000
 ; Разрешить подключение удаленного помощника
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance]
 "fAllowToGetHelp"=dword:00000000
